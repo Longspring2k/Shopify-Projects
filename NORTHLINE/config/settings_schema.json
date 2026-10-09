@@ -1,0 +1,56 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "NORTHLINE STRATA 02",
+    "theme_author": "NORTHLINE",
+    "theme_version": "1.0.0",
+    "theme_support_url": "https://test-theme-j3hth5t1.myshopify.com/pages/contact",
+    "theme_documentation_url": "https://test-theme-j3hth5t1.myshopify.com/pages/about"
+  },
+  {
+    "name": "Brand identity",
+    "settings": [
+      {
+        "type": "text",
+        "id": "strata_brand",
+        "label": "Brand name",
+        "default": "NORTHLINE"
+      },
+      {
+        "type": "text",
+        "id": "strata_tagline",
+        "label": "Brand line",
+        "default": "RIDING WITHOUT BORDERS"
+      }
+    ]
+  },
+  {
+    "name": "Design colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "strata_dark",
+        "label": "Ink",
+        "default": "#15171c"
+      },
+      {
+        "type": "color",
+        "id": "strata_accent",
+        "label": "Electric coral",
+        "default": "#ff6049"
+      },
+      {
+        "type": "color",
+        "id": "strata_lilac",
+        "label": "Soft lilac",
+        "default": "#dcd9ff"
+      },
+      {
+        "type": "color",
+        "id": "strata_paper",
+        "label": "Off-white",
+        "default": "#f8f7f2"
+      }
+    ]
+  }
+]

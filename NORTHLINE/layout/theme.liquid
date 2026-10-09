@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="{{ settings.strata_dark | default: '#15171c' }}">
+<link rel="canonical" href="{{ canonical_url }}">
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+<title>{{ page_title | escape }}{% unless page_title contains shop.name %} &ndash; {{ shop.name | escape }}{% endunless %}</title>
+{% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+{{ content_for_header }}
+<style>:root{--sv-ink:{{ settings.strata_dark | default: '#15171c' }};--sv-coral:{{ settings.strata_accent | default: '#ff6049' }};--sv-lilac:{{ settings.strata_lilac | default: '#dcd9ff' }};--sv-paper:{{ settings.strata_paper | default: '#f8f7f2' }};}</style>
+{{ 'strata.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'strata.js' | asset_url }}" defer></script>
+</head>
+<body class="sv-body sv-page--{{ request.page_type | escape }}">
+<a href="#main" class="sv-skip">{{ 'strata.accessibility.skip' | t }}</a>
+{% sections 'header-group' %}
+<main id="main" tabindex="-1">{{ content_for_layout }}</main>
+{% sections 'footer-group' %}
+</body>
+</html>

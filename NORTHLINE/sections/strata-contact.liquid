@@ -1,0 +1,8 @@
+<section class="sv-section sv-contact"><div class="sv-wrap sv-contact__grid"><div><p class="sv-eyebrow">04 / SEND IT OUR WAY</p><h2>GOT<br>SOMETHING<br><em>on your mind?</em></h2><p>Questions about products, an idea worth sharing or just want to say hello? We'd love to hear from you.</p><div class="sv-contact__meta"><span>NORTHLINE / FIELD COMMUNICATIONS</span><span>ALWAYS OPEN TO A GOOD STORY.</span></div></div><div class="sv-contact__form"><p class="sv-eyebrow">LEAVE YOUR MESSAGE / 01</p>
+{% form 'contact' %}{% if form.posted_successfully? %}<div role="status" class="sv-form-success">Thanks. We received your message.</div>{% endif %}{% if form.errors %}<div role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+<label for="sv-contact-name">Name</label><input id="sv-contact-name" type="text" name="contact[name]" autocomplete="name" value="{{ form.name | escape }}">
+<label for="sv-contact-email">Email *</label><input id="sv-contact-email" name="contact[email]" type="email" autocomplete="email" required value="{{ form.email | escape }}">
+<label for="sv-contact-message">Message *</label><textarea id="sv-contact-message" name="contact[body]" rows="7" required>{{ form.body | escape }}</textarea>
+<button class="sv-pill sv-pill--dark" type="submit">SEND MESSAGE <span>&nearr;</span></button>{% endform %}
+</div></div></section>
+{% schema %}{"name":"STRATA contact form","settings":[]}{% endschema %}

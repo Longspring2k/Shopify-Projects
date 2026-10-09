@@ -1,0 +1,87 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "strata": {
+    "accessibility": {
+      "skip": "Skip to content",
+      "open_menu": "Open menu",
+      "close_menu": "Close menu",
+      "cart": "Shopping bag"
+    },
+    "navigation": {
+      "home": "Home",
+      "shop": "Shop all",
+      "collection": "Collection",
+      "story": "Our story",
+      "contact": "Contact",
+      "cart": "Bag",
+      "search": "Search"
+    },
+    "general": {
+      "explore": "Explore",
+      "view_all": "View all products",
+      "shop_now": "Shop now",
+      "sold_out": "Sold out",
+      "sale": "Sale",
+      "no_products": "No products found",
+      "no_image": "Product image unavailable",
+      "continue": "Continue shopping",
+      "back": "Back to shop",
+      "results": "Search results",
+      "read_more": "Read more"
+    },
+    "product": {
+      "select_variant": "Choose your option",
+      "quantity": "Quantity",
+      "add_to_cart": "Add to bag",
+      "unavailable": "Unavailable",
+      "description": "Product details",
+      "delivery": "Shipping is calculated at checkout.",
+      "inventory": "Stock status"
+    },
+    "cart": {
+      "title": "Your bag",
+      "empty": "Your bag is waiting for adventure.",
+      "total": "Subtotal",
+      "update": "Update bag",
+      "checkout": "Go to checkout",
+      "remove": "Remove",
+      "shipping": "Taxes and shipping calculated at checkout."
+    },
+    "contact": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Thanks. We received your message and will be in touch soon."
+    },
+    "newsletter": {
+      "email": "Email address",
+      "submit": "Count me in",
+      "success": "Thanks for joining us."
+    },
+    "search": {
+      "placeholder": "What are you looking for?",
+      "button": "Search",
+      "no_results": "No results matched your search."
+    },
+    "footer": {
+      "explore": "EXPLORE",
+      "help": "NEED HELP?",
+      "copyright": "All rights reserved."
+    },
+    "password": {
+      "title": "A fresh line is coming.",
+      "subtitle": "The store is currently protected. Enter the storefront password to explore.",
+      "label": "Storefront password",
+      "enter": "Enter store"
+    }
+  }
+}

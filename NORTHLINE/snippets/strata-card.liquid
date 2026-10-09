@@ -1,0 +1,11 @@
+{% doc %}
+@param {product} product - Product to display
+@param {number} [index] - Card position
+{% enddoc %}
+{% if product != blank %}
+<article class="sv-product-card"><a class="sv-product-card__figure" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+{% if product.featured_image %}{{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.title, class: 'sv-product-card__image' }}{% else %}<span class="sv-product-card__empty">N / 02</span>{% endif %}
+<span class="sv-product-card__marker">{% if index %}0{{ index }}{% else %}N / 02{% endif %}</span><span class="sv-product-card__cta">&nearr;</span>
+{% unless product.available %}<span class="sv-product-card__badge">{{ 'strata.general.sold_out' | t }}</span>{% endunless %}
+</a><div class="sv-product-card__info"><div><p class="sv-micro">NORTHLINE / EQUIPMENT</p><h3><a href="{{ product.url }}">{{ product.title | escape }}</a></h3></div><div class="sv-product-card__money">{{ product.price | money }}</div></div></article>
+{% endif %}

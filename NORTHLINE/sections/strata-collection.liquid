@@ -1,0 +1,8 @@
+<section class="sv-page-banner sv-page-banner--collection"><div class="sv-wrap"><p class="sv-eyebrow">NORTHLINE / SHOP THE FIELD</p><h1>{{ collection.title | escape }}</h1><div class="sv-collection-head__bottom"><p>{{ collection.description | strip_html | truncate: 180 | default: 'Gear for the next turn, every turn.' }}</p><span>THE COLLECTION / {{ collection.products_count }} ITEMS</span></div></div></section>
+<section class="sv-section sv-collection"><div class="sv-wrap">
+{% paginate collection.products by 12 %}
+<div class="sv-collection-toolbar"><p class="sv-micro">{{ paginate.items }} ITEMS / {{ collection.title | upcase | escape }}</p><form action="{{ collection.url }}" method="get"><label for="sv-sort-{{ section.id }}">SORT BY</label><select id="sv-sort-{{ section.id }}" name="sort_by" data-strata-sort>{% assign selected_sort = collection.sort_by | default: collection.default_sort_by %}{% for option in collection.sort_options %}<option value="{{ option.value | escape }}" {% if option.value == selected_sort %}selected{% endif %}>{{ option.name | escape }}</option>{% endfor %}</select></form></div>
+{% if collection.products.size > 0 %}<div class="sv-products-grid">{% for product in collection.products %}{% render 'strata-card', product: product, index: forloop.index %}{% endfor %}</div>{% else %}<p class="sv-empty">No products found.</p>{% endif %}
+{% if paginate.pages > 1 %}<nav class="sv-pagination" aria-label="Product pages">{{ paginate | default_pagination }}</nav>{% endif %}
+{% endpaginate %}</div></section>
+{% schema %}{"name":"STRATA collection","settings":[]}{% endschema %}

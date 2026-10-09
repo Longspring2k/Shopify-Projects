@@ -1,0 +1,7 @@
+<footer class="sv-footer"><div class="sv-wrap">
+<div class="sv-footer__top"><div class="sv-footer__intro"><p class="sv-eyebrow sv-eyebrow--light">THERE IS MORE OUT THERE / 02</p><h2>ALWAYS<br><em>in motion.</em></h2><p>Somewhere between the first chairlift and the last line home, there is a feeling worth chasing.</p><a class="sv-pill sv-pill--coral" href="{{ routes.all_products_collection_url }}">SEE THE COLLECTION <span>&nearr;</span></a></div>
+<div class="sv-footer__columns"><div><h3>EXPLORE</h3><a href="{{ routes.root_url }}">Home</a><a href="{{ routes.all_products_collection_url }}">Shop all</a><a href="/collections/hydrogen">Collection</a><a href="/pages/about">Our story</a></div><div><h3>NEED HELP?</h3><a href="/pages/contact">Contact</a><a href="{{ routes.search_url }}">Search</a><a href="{{ routes.cart_url }}">Your bag</a><a href="{{ routes.account_url }}">Account</a></div></div></div>
+<div class="sv-footer__signature"><a href="{{ routes.root_url }}">{{ settings.strata_brand | default: 'NORTHLINE' | upcase | escape }}<sup>&nearr;</sup></a></div>
+<div class="sv-footer__base"><span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span><span>{{ settings.strata_tagline | escape }}</span><span>STRATA SERIES / 02</span></div>
+</div></footer>
+{% schema %}{"name":"STRATA footer","settings":[]}{% endschema %}

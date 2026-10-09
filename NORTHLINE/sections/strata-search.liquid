@@ -1,0 +1,6 @@
+<section class="sv-section"><div class="sv-wrap"><p class="sv-eyebrow">NORTHLINE / FIND YOUR WAY</p><h1 class="sv-interior-title">LOOKING <em>for something?</em></h1><form action="{{ routes.search_url }}" method="get" role="search" class="sv-search-form"><label for="sv-search">SEARCH</label><div><input id="sv-search" name="q" type="search" value="{{ search.terms | escape }}" placeholder="What are you looking for?"><button class="sv-pill sv-pill--dark" type="submit">SEARCH <span>&nearr;</span></button></div></form>
+{% if search.performed %}<p class="sv-eyebrow sv-search-result-count">{{ search.results_count }} SEARCH RESULTS</p>{% paginate search.results by 12 %}
+{% if search.results.size > 0 %}<div class="sv-products-grid">{% for item in search.results %}{% if item.object_type == 'product' %}{% render 'strata-card', product: item, index: forloop.index %}{% else %}<article class="sv-search-other"><h2><a href="{{ item.url }}">{{ item.title | escape }}</a></h2></article>{% endif %}{% endfor %}</div>{% else %}<p class="sv-empty">No results found.</p>{% endif %}
+{% if paginate.pages > 1 %}<nav class="sv-pagination">{{ paginate | default_pagination }}</nav>{% endif %}{% endpaginate %}{% endif %}
+</div></section>
+{% schema %}{"name":"STRATA search","settings":[]}{% endschema %}

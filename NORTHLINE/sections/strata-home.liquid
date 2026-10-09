@@ -1,0 +1,38 @@
+{% liquid
+assign featured = section.settings.featured_product
+if featured == blank
+  assign featured = collections['all'].products.first
+endif
+assign sample_one = all_products['the-videographer-snowboard']
+if sample_one == blank
+  assign sample_one = collections['all'].products[1]
+endif
+assign selected_collection = section.settings.collection
+if selected_collection == blank
+  assign selected_collection = collections['all']
+endif
+%}
+<section class="sv-hero">
+<div class="sv-hero__copy">
+<div class="sv-hero__rail"><span class="sv-eyebrow"><span class="sv-mini-dot"></span>NORTHLINE FIELD DEPARTMENT</span><span class="sv-micro">N / SERIES 02 &mdash; 2026</span></div>
+<div class="sv-hero__main"><p class="sv-micro sv-hero__index">THE ART OF GETTING LOST / VOLUME 002</p><h1>RIDE<br>BEYOND<br><em>ordinary</em><span class="sv-hero__fullstop">.</span></h1><p class="sv-hero__desc">Snowboards, essentials, and unapologetically good days. Leave the expected behind and find your own line.</p><a class="sv-pill sv-pill--dark" href="{{ routes.all_products_collection_url }}">EXPLORE ALL GEAR <span>&nearr;</span></a></div>
+<div class="sv-hero__bottom"><span>BUILT FOR THE UNEXPECTED.</span><span>SCROLL TO EXPLORE &darr;</span></div>
+</div>
+<div class="sv-hero__visual"><div class="sv-hero__disk"></div><span class="sv-hero__image-label">THE PRODUCT STUDY / 02</span><span class="sv-hero__visual-index">02</span><a class="sv-hero__product sv-hero__product--map" href="{{ featured.url | default: routes.all_products_collection_url }}" aria-label="{{ featured.title | default: 'Shop snowboards' | escape }}">
+{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 1600 | image_tag: loading: 'eager', class: 'sv-hero__board sv-hero__board--map', alt: section.settings.hero_image.alt }}{% else %}<img src="{{ 'northline-antique-map.svg' | asset_url }}" alt="Antique hand-drawn harbor map on aged parchment" class="sv-hero__board sv-hero__board--map" width="1600" height="895" loading="eager">{% endif %}</a><div class="sv-hero__visual-foot"><span>MOVE DIFFERENTLY &mdash; NORTHLINE</span><span class="sv-hero__badge">NEW FORM<br>NEW LINE<br>✳ 02</span></div></div>
+</section>
+<div class="sv-ticker"><div class="sv-ticker__inner">{% for i in (1..4) %}<span>OUT HERE / THERE ARE NO RULES</span><span>✳</span>{% endfor %}</div></div>
+<section class="sv-section"><div class="sv-wrap"><div class="sv-section__heading"><div><p class="sv-eyebrow">01 / PICK YOUR DIRECTION</p><h2>PICK A LINE.<br><em>Make it yours.</em></h2></div><p class="sv-section__aside">Three ways to start. Infinite places to end up. Find what makes you move.</p></div>
+<div class="sv-bento">
+<a class="sv-bento__tile sv-bento__tile--statement" href="{{ routes.all_products_collection_url }}"><div class="sv-bento__top"><span>01 / THE WHOLE LINEUP</span><span>&nearr;</span></div><div class="sv-bento__statement">NO<br>SMALL<br>PLANS<span class="sv-bento__punct">.</span></div><div class="sv-bento__bottom">DISCOVER ALL SNOWBOARDS <span>&rarr;</span></div></a>
+<a class="sv-bento__tile sv-bento__tile--product" href="{{ sample_one.url | default: routes.all_products_collection_url }}"><div class="sv-bento__top"><span>02 / SELECTED GEAR</span><span>&nearr;</span></div>{% if sample_one.featured_image %}{{ sample_one.featured_image | image_url: width: 950 | image_tag: loading: 'lazy', alt: sample_one.title }}{% else %}<img src="{{ 'strata-board.svg' | asset_url }}" alt="Snowboard graphic" loading="lazy" width="400" height="700">{% endif %}<span class="sv-bento__bottom">{{ sample_one.title | default: 'EXPLORE THE RIDE' | escape }} <span>&rarr;</span></span></a>
+<a class="sv-bento__tile sv-bento__tile--collection" href="/collections/hydrogen"><div class="sv-bento__top"><span>03 / THE HYDROGEN EDIT</span><span>&nearr;</span></div><div class="sv-bento__circle"></div><div class="sv-bento__collection-title">THE<br>HYDROGEN<br><i>series</i></div><div class="sv-bento__bottom">FIND YOUR NEXT BOARD <span>&rarr;</span></div></a>
+</div></div></section>
+<section class="sv-section sv-featured"><div class="sv-wrap"><div class="sv-section__heading"><div><p class="sv-eyebrow">02 / THE SELECTED EDIT</p><h2>THE FIELD<br><em>favorites.</em></h2></div><a class="sv-underlink" href="{{ routes.all_products_collection_url }}">SEE EVERYTHING <span>&nearr;</span></a></div>
+{% if selected_collection.products_count > 0 %}<div class="sv-products-grid">{% for product in selected_collection.products limit: 4 %}{% render 'strata-card', product: product, index: forloop.index %}{% endfor %}</div>{% else %}<p class="sv-empty">Explore our equipment collection.</p>{% endif %}
+</div></section>
+<section class="sv-story"><div class="sv-story__graphic"><div class="sv-story__graphic-inner"><div class="sv-story__mini-label">NORTHLINE / THE MANIFESTO</div><div class="sv-story__orb"></div><span class="sv-story__big-symbol">N<span>*</span></span><div class="sv-story__graphic-bottom">SOMEWHERE / BEYOND THE KNOWN</div></div></div><div class="sv-story__copy"><p class="sv-eyebrow sv-eyebrow--light">03 / A REASON TO GET OUTSIDE</p><h2>THERE'S MORE<br><em>out there.</em></h2><p>We don't chase perfect conditions. We chase the feeling. The first turn, the last light, and everything that happens between. Welcome to NORTHLINE.</p><a href="/pages/about" class="sv-pill sv-pill--outline">OUR STORY <span>&nearr;</span></a></div></section>
+<section class="sv-letter"><div class="sv-wrap sv-letter__inner"><div><p class="sv-eyebrow">04 / THE GOOD MAIL ONLY</p><h2>GET IN<br><em>the loop.</em></h2><p>Field notes, drops and stories worth opening.</p></div>
+{% form 'customer', class: 'sv-letter__form' %}<input type="hidden" name="contact[tags]" value="newsletter"><label for="sv-signup-{{ section.id }}">Email address</label><div class="sv-letter__row"><input type="email" name="contact[email]" id="sv-signup-{{ section.id }}" autocomplete="email" placeholder="hello@example.com" required><button type="submit">COUNT ME IN <span>&nearr;</span></button></div>{% if form.posted_successfully? %}<p role="status">Thanks for joining us.</p>{% endif %}{% if form.errors %}<div role="alert">{{ form.errors | default_errors }}</div>{% endif %}{% endform %}
+</div></section>
+{% schema %}{"name":"STRATA 02 homepage","settings":[{"type":"product","id":"featured_product","label":"Hero featured product"},{"type":"image_picker","id":"hero_image","label":"Override hero image"},{"type":"collection","id":"collection","label":"Featured collection"}],"presets":[{"name":"STRATA 02 homepage"}]}{% endschema %}

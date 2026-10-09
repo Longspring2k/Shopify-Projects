@@ -1,0 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "strata-page-banner",
+      "settings": {
+        "eyebrow": "NORTHLINE / THE WHY BEHIND THE WHAT",
+        "heading": "MADE FOR",
+        "italic": "the feeling.",
+        "description": "For the first turn, the next adventure, and everything that makes you feel alive.",
+        "color_mode": "dark"
+      }
+    },
+    "story": {
+      "type": "strata-about",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "story"
+  ]
+}
