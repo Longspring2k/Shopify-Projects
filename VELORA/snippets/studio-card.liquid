@@ -1,0 +1,5 @@
+{% doc %}
+Renders an independent VELORA product card.
+@param {product} product - The Shopify product
+@param {number} [index] - Editorial index
+{% enddoc %}<a href="{{ product.url }}" class="s-product velora-card"><div class="s-product-image">{% if product.featured_image != blank %}{{ product.featured_image | image_url: width: 760 | image_tag: loading: 'lazy', widths: '300, 500, 760', sizes: '(min-width: 900px) 25vw, 50vw', alt: product.title }}{% else %}<span aria-hidden="true" style="font-size:65px;opacity:.45">✳</span>{% endif %}<span class="s-card-index">{% if index %}0{{ index }}{% else %}EDIT{% endif %}</span></div><div class="s-product-meta"><span class="s-product-name">{{ product.title | escape }}</span><span class="s-product-price">{{ product.price | money }}</span></div><span class="s-card-more">{% unless product.available %}Sold out{% else %}Discover ↗{% endunless %}</span></a>
